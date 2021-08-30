@@ -1,0 +1,18 @@
+.body_background 
+{
+    background-position: center;
+    background-size:contain;
+	background:url(Grass.jpg);
+}
+#imacanvas
+{
+    border-width:10px;
+    border-style:ridge;
+	background-color:forestgreen;
+}
+
+#hd3{
+	color: red;
+	background-color: aliceblue;
+	font-family: fantasy;
+}
