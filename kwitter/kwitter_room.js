@@ -30,13 +30,17 @@ getData();
 
 function addRoom() {
       var roomName = document.getElementById("room_name").value;
-      firebase.database().ref("/").child(roomName).update({
-            purpose: "add room name"
-      });
+      firebase.database().ref("/").child(roomName).update({});
       goToRoom(roomName);
 }
 
 function goToRoom(room) {
       localStorage.setItem("room", room);
       window.location = "kwitter_page.html";
+}
+
+function logout() {
+      localStorage.removeItem("user_name");
+      localStorage.removeItem("room");
+      location = "index.html";
 }
