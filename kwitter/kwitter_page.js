@@ -29,12 +29,17 @@ function getData() {
 getData();
 
 function send() {
-      firebase.database().ref(room_name).push({
-            name: username,
-            message: document.getElementById("msg").value,
-            likes: 0
-      });
-      document.getElementById("msg").value="";
+      if(document.getElementById("msg").value != "") {
+            firebase.database().ref(room_name).push({
+                  name: username,
+                  message: document.getElementById("msg").value,
+                  likes: 0
+            });
+            document.getElementById("msg").value="";
+            document.getElementById("msg").placeholder="Message";
+      }else {
+            document.getElementById("msg").placeholder="You cant send a empty message!";
+      }
 }
 
 function addLike(childKey) {
@@ -48,4 +53,9 @@ function logout() {
       localStorage.removeItem("user_name");
       localStorage.removeItem("room");
       location = "index.html";
+}
+
+function back() {
+      localStorage.removeItem("room");
+      location = "kwitter_room.html";
 }

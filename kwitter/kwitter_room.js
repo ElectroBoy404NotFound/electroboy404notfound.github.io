@@ -10,19 +10,16 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 user_name = localStorage.getItem("user_name");
 
-document.getElementById("user_name").innerHTML = "Welcome, " + user_name + "!";
+document.getElementById("user_name").innerHTML = "Welcome to kwitter, " + user_name + "!";
 
 function getData() {
-      firebase.database().ref("/").on('value', function(snapshot) {
+      firebase.database().ref("/").on('value', (snapshot) => {
             document.getElementById("output").innerHTML = "";
-            snapshot.forEach(function(childSnapshot) {
+            snapshot.forEach((childSnapshot) => {
                   childKey  = childSnapshot.key;
                   Room_names = childKey;
-                  //Start code
-                  console.log("Room - " + Room_names);
                   document.getElementById("output").innerHTML += 
                   "<div class='room_name' id=" + Room_names + " onclick='goToRoom(this.id)'>#" + Room_names + "</div>"
-                  //End code
             });
       });
 }
@@ -30,8 +27,13 @@ getData();
 
 function addRoom() {
       var roomName = document.getElementById("room_name").value;
-      firebase.database().ref("/").child(roomName).update({});
-      goToRoom(roomName);
+      if(roomName != "") {
+            firebase.database().ref("/").child(roomName).update({});
+            goToRoom(roomName);
+      }else {
+            document.getElementById("room_name").value = "";
+            document.getElementById("room_name").placeholder = "You cant make a room with no name!";
+      }
 }
 
 function goToRoom(room) {
