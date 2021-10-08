@@ -9,6 +9,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
 
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+
    <link rel="stylesheet" href="style.css">
   
   </head>
@@ -17,25 +19,24 @@
   <div class="container">
     
     <center>
-      <h3 class="btn-default heading">family recognition</h3>
+      <h3 class="heading" id="header">Family Member Recognition</h3>
       <br><br>
 
-      <p style="font-size: 22px;">Model is trained to identify the following objects: </p>
+      <p style="font-size: 22px; color: gray;">Model is trained to identify the following objects: </p>
       <b class="nameOfObjects">
-        MOM
+        Grand Mother
         <br><br>
-        DAD
+        Grand Father
         <br><br>
-        SIS
+        Me
         <br><br>
-        BRO
       </b>
-      <label>Webcam View - </label>
+      <label id="webcamviewtxt">Webcam View - </label>
       <div id="camera"></div>
       <br><br>
       <div id="result"></div>
       <br><br>
-      <button onclick="takeSnapshort();" class="btn btn-info">Catpure Image</button>
+      <button onclick="takeSnap();" class="btn btn-info">Catpure Image</button>
       <br><br>
       <button onclick="check();" class="btn btn-success">Check Image</button>
       <br><br>

@@ -1,0 +1,20 @@
+body {
+    background-image: linear-gradient(to right top, #ffff00ff, #2591d9, #aa0a0a, #53abd4);
+}
+
+#header
+{
+	color: rgb(245, 9, 9);font-family: 'Yeon Sung';font-size: 45px;letter-spacing: 10px;margin-top: 80px;
+	overflow: hidden;
+	scroll-behavior: unset;
+	scroll-margin: none;
+	background-size: cover;
+}
+
+.nameOfObjects {
+    background-image: linear-gradient(to top, #ff0000, #00ff00, #0000ff);
+}
+
+#webcamviewtxt {
+    color: rgb(255, 100, 100);
+}
