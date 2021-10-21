@@ -7,7 +7,7 @@ Webcam.set({
 
 Webcam.attach(document.getElementById("camera"));
 
-var classifier = ml5.imageClassifier("https://storage.googleapis.com/tm-model/undefined/model.json", () => console.log("Ready"))
+var classifier = ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/Za2eM6etF/model.json", () => console.log("Ready"))
 
 function takeSnap() {
    Webcam.snap((data) => document.getElementById("result").innerHTML = "<img id=\"image\" src=\"" + data + "\"/>");
