@@ -12,3 +12,11 @@ var classifier = ml5.imageClassifier("https://teachablemachine.withgoogle.com/mo
 function takeSnap() {
    Webcam.snap((data) => document.getElementById("result").innerHTML = "<img id=\"image\" src=\"" + data + "\"/>");
 }
+
+function check() {
+    classifier.classify(document.getElementById('result'), (result) => {
+        if(err) throw err;
+        document.getElementById("o").innerHTML = results[0].label;
+        document.getElementById("a").innerHTML = results[0].confidence.toFixed(3);
+    });
+}
