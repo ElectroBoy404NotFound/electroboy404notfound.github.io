@@ -14,7 +14,7 @@ function takeSnap() {
 }
 
 function check() {
-    classifier.classify(document.getElementById('image'), (result) => {
+    classifier.classify(document.getElementById('image'), (err, result) => {
         if(err) throw err;
         document.getElementById("o").innerHTML = results[0].label;
         document.getElementById("a").innerHTML = results[0].confidence.toFixed(3);
