@@ -1,0 +1,34 @@
+.center {
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+}
+
+body
+{
+  color: white;
+  background: #c0d3ff;
+  background-image: linear-gradient(to right top, #ffff00ff, #2591d9, #aa0a0a, #53abd4);
+}
+span
+{
+  font-size: 30px;
+}
+#camera , #result
+{
+  border: 2px dashed black;
+  width: 350px;
+  height: 300px; 
+}
+#result_emotion_name ,#result_emotion_name2  
+{
+  color: black;
+}
+.emotion_name
+{
+  font-size: 40px;
+}
+.emoji
+{
+  font-size:48px;
+}
