@@ -1,0 +1,9 @@
+body {
+    background-image: linear-gradient(to right top, #ffff00ff, #2591d9, #aa0a0a, #53abd4);
+}
+
+.center {
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
