@@ -2,12 +2,29 @@ quick_draw_data_set=["aircraft carrier","airplane","alarm clock","ambulance","an
 
 document.getElementById("sktbd").innerHTML = "Sketch to draw: " +  quick_draw_data_set[Math.floor((Math.random()*quick_draw_data_set.length)+1)];
 
-var var1 = 0;
+var var1 = 0, classifier, pmx, pmy, mx, my, mouseIsPressed;
 
+function preload() {
+    classifier = ml5.imageClassifier("DoodleNet");
+}
 function setup() {
     canvas = createCanvas(280, 280);
     canvas.center();
     background("white");
+    canvas.mouseReleased(() => {
+        console.log("\"");
+        classifier.classify(
+            canvas,
+            (err, result) => {
+                if(err) throw err;
+                console.log(result);
+                document.getElementById("label").innerHTML = "Label: " + result[0].label;
+                document.getElementById("confidence").innerHTML = "Confidence: " + Math.round(result[0].confidence * 100) + "%";
+            }
+        );
+    });
+    canvas.mouseMoved((event) => { mouseIsPressed = event.buttons == 1 ? true : false; pmx = mx; pmy = my; mx = event.layerX; my = event.layerY; })
+    synth = window.speechSynthesis;
 }
 function draw() {
     var1++;
@@ -16,219 +33,10 @@ function draw() {
         var1 = 0;
     }
     document.getElementById("timer").innerHTML = "Timer: " + var1;
+    strokeWeight(9);
+    stroke(0);
+    if(mouseIsPressed) line(pmx, pmy, mx, my);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function clearCanvas() {
     background("white");
