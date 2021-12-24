@@ -1,0 +1,58 @@
+body {
+	background-image: "background.png";
+}
+
+#label {
+	font-family: bold;
+	font-size: 30px;
+}
+#confidence {
+	font-family: bold;
+	font-size: 30px;
+}
+#sktbd {
+	font-family: bold;
+	font-size: 30px;
+}
+.score {
+	font-family: bold;
+	font-size: 30px;
+}
+.timer {
+	font-size: 30px;
+	font-family: bold;
+}
+
+
+
+#show_sketch
+{
+  float:right;
+}
+
+canvas 
+  {
+    border:5px solid white;
+    border-radius:20px;
+    margin-top:250px;
+    box-shadow:5px 5px 5px grey;
+    box-shadow: 1px 1px 38px #ffffff;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes example {
+
+  from {box-shadow: 1px 1px 38px grey;}
+  to {box-shadow: 1px 1px 38px white;}
+
+}
+
+
+p, span
+  {
+    padding-top:10px;
+    font-family: 'Special Elite', fantasy;
+    font-size:25px;
+    
+  }

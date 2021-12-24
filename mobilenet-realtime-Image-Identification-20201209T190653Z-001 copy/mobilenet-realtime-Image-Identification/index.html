@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real Time Image Identification App</title>
+
+    <!-- dependencies -->
+      <!-- bootstrap -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+      <!-- ML5 -->
+      <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <!-- dependencies end -->
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body background="https://mohit-coder99.github.io/Adv-120/background.jpg">
+    <script src="main.js"></script>
+    <center>
+      <h1 class="heading glow">
+        CASE STUDY
+      </h1>
+      <div class="glenvsmobilenet">
+        <h5>Google Lens</h5>
+        <h3>VS</h3>
+        <h5>Mobile Net</h5>
+      </div>
+      <h5 id="tagline">Who will win?</h5>
+      <button id="t1b" onclick="showtest1();">Show test1</button>
+    </center>
+
+    <section id="test1">
+      <center>
+        <div class="theyellowthingthatsurrondstheresults">
+          <div class="awhitething">
+            <h4>Nike Sneakers:</h4>
+            <image width=100 height=100 src="https://mohit-coder99.github.io/C-121-Project/shoes.jpg"></image>
+          </div>
+          <h4>Google Lens: Shoe</h4>
+          <h4>Moblienet: Nike Sneakers</h4>
+          <h3>Result: Moblienet wins the first test!</h3>
+          <button id="t2b" onclick="showtest2();">Show test2</button>
+        </div>
+      </center>
+    </section>
+    <section id="test2">
+      <center>
+        <div class="theyellowthingthatsurrondstheresults">
+          <div class="awhitething">
+            <h4>Nike Sneakers:</h4>
+            <image width=100 height=100 src="https://mohit-coder99.github.io/C-121-Project/hp.jfif"></image>
+          </div>
+          <h4>Google Lens: Head Phones</h4>
+          <h4>Moblienet: Mikes</h4>
+          <h3>Result: Google Lens wins the second test!</h3>
+          <button id="t3b" onclick="showtest3();">Show test3</button>
+        </div>
+      </center>
+    </section>
+    <section id="test3">
+      <center>
+        <div class="theyellowthingthatsurrondstheresults">
+          <div class="awhitething">
+            <h4>Bed:</h4>
+            <image width=100 height=100 src="https://mohit-coder99.github.io/C-121-Project/bed.jpg"></image>
+          </div>
+          <h4>Google Lens: Pillow Mattress</h4>
+          <h4>Moblienet: Bed</h4>
+          <h3>Result: Moblienet wins the third test!</h3>
+          <button id="t4b" onclick="showtest4();">Show test4</button>
+        </div>
+      </center>
+    </section>
+    <section id="test4">
+      <center>
+        <div class="theyellowthingthatsurrondstheresults">
+          <div class="awhitething">
+            <h4>Hydro Flask:</h4>
+            <image width=100 height=100 src="https://mohit-coder99.github.io/C-121-Project/bottle.jpg"></image>
+          </div>
+          <h4>Google Lens: Bottle</h4>
+          <h4>Moblienet: Hydro Flask</h4>
+          <h3>Result: Moblienet wins the forth test!</h3>
+          <button id="resultb" onclick="showres();"><strong>Results!</strong></button>
+        </div>
+      </center>
+    </section>
+    <section id="ress">
+      <center><div class="theyellowthingthatsurrondstheresults"><h2><strong>Case Study Result - </strong><br>Out of 4 images 3 are identified by MobileNet and only 1 image is identified by google lens.<br><br>So, MobileNet is more accurate and reliable!</h2><button id="endb" onclick="closeall();">Close all</button></div></center>
+    </section>
+  </body>
+</html>
+
+

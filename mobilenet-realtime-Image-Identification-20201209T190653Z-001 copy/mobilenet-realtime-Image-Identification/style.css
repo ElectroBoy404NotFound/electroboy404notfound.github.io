@@ -1,0 +1,66 @@
+body {
+  background-size: 1500px;
+}
+.heading {
+  font-family: cursive;
+  font-weight: bolder;
+  font-size: 70px;
+}
+
+.glow {
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+}
+
+.glenvsmobilenet h5 {
+  font-size: xx-large;
+  color: red;
+}
+.glenvsmobilenet h3 {
+  font-size: 1000;
+  color: brown;
+}
+#tagline {
+  color: gold;
+  font-size: 20px;
+}
+#test1 {
+  visibility: hidden;
+}
+#test2 {
+  visibility: hidden;
+}
+#test3 {
+  visibility: hidden;
+}
+#test4 {
+  visibility: hidden;
+}
+#ress {
+  visibility: hidden;
+}
+
+.theyellowthingthatsurrondstheresults {
+  padding: 15px;
+  margin: 20px;
+  width: 70%;
+  height: 350px;
+  background-color: yellow;
+  box-shadow: 5px 5px 5px cyan;
+  border-radius: 20px;
+  margin-left: -35px;
+}
+.awhitething {
+  width: 50%;
+  height: 160px;
+  background-color: white;
+  border-radius: 20px;
+}
