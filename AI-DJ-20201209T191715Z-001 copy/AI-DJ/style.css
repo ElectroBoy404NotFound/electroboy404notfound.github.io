@@ -22,3 +22,12 @@ body {
     font-size: 23px;
     margin: 15px
 }
+.play_button {
+    width: 130px;
+    font-size: 25px;
+}
+canvas {
+    margin: 500px 0 0 0;
+    border: 4mm ridge white;
+    border-radius: 20px;
+}
