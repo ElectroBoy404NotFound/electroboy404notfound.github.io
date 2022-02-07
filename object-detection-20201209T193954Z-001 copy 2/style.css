@@ -11,7 +11,7 @@ width: 100%;
 margin: 0px;
 }
 
-#status, #number_of_objects
+#status
 {
 font-size: 18px;
 }
@@ -20,5 +20,5 @@ canvas
 {
 box-shadow: 10px 10px 10px grey;
 border-radius: 10px;
-  margin-top:30px;
+  margin-top:50px;
 }
