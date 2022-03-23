@@ -1,0 +1,35 @@
+body {
+    background-image: "background.jpg";
+    background-size: cover;
+}
+
+.heading {
+    font-size: 23px;
+    width: 100%;
+    margin: 0px;
+}
+
+#start {
+    font-size: 18px;
+}
+
+#status, #number_of_objects, #start {
+    font-size: 18px;
+}
+
+.copywrite {
+    position: fixed;
+    color: #6C757D;
+    bottom: 0;
+    width: 100%;
+    background-color: #F5F5F5;
+    line-height: 3;
+    text-align: center;
+}
+
+canvas {
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    margin-top: 130px;
+    box-shadow: 5px 5px 5px #dee2e6;
+}
