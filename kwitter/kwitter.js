@@ -23,13 +23,31 @@ function logUserIn() {
         // window.location = "kwitter_room.html";
         if(user_pass != "") {
             // passhash = firebase.database().get(user_name);
+            userFound = false;
             firebase.database().ref("/Users/").on('value', (snapshot) => {
                 snapshot.forEach((childSnapshot) => {
                       childKey = childSnapshot.key;
-                      childValue = childSnapshot.value;
-                      console.log(childSnapshot);
+                      childValue = childSnapshot.val();
+                      if(user_name == childKey) {
+                        userFound = true;
+                        passwordSHA512 = sha512(user_pass);
+                        console.log(passwordSHA512);
+                        if(passwordSHA512 == childValue) {
+                            localStorage.setItem("user_name", user_name);
+                            localStorage.setItem("user_pass", user_pass);
+                            window.location = "kwitter_room.html";
+                        } else {
+                            document.getElementById("user_pass").value = "";
+                            document.getElementById("user_pass").placeholder = "Incorrect password for user!";
+                        }
+                      }
                 });
           });
+          if(!userFound) {
+            document.getElementById("user_pass").value = "";
+            document.getElementById("user_name").value = "";
+            document.getElementById("user_name").placeholder = "Username not found!";
+          }
             // console.log(passhash);
         }else {
             document.getElementById("user_pass").value = "";
