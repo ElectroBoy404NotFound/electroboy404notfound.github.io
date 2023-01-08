@@ -24,7 +24,6 @@ function logUserIn() {
         if(user_pass != "") {
             // passhash = firebase.database().get(user_name);
             firebase.database().ref("/Users/" + user_name).on('value', (snapshot) => {
-                document.getElementById("output").innerHTML = "";
                 snapshot.forEach((childSnapshot) => {
                       childKey  = childSnapshot.key;
                       console.log(childKey);
