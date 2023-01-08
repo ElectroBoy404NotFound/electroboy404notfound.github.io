@@ -12,6 +12,10 @@ firebase.initializeApp(firebaseConfig);
 var room_name = localStorage.getItem("room");
 var username = localStorage.getItem("user_name");
 
+if(username == "") {
+      location = "index.html";
+}
+
 function getData() { 
       firebase.database().ref("/rooms/"+room_name).on('value', function(snapshot) { 
             document.getElementById("output").innerHTML = ""; 
@@ -51,6 +55,7 @@ function addLike(childKey) {
 
 function logout() {
       localStorage.removeItem("user_name");
+      localStorage.removeItem("user_pass");
       localStorage.removeItem("room");
       location = "index.html";
 }

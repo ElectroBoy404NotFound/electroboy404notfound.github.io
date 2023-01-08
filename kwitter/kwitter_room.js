@@ -10,6 +10,10 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 user_name = localStorage.getItem("user_name");
 
+if(username == "") {
+      location = "index.html";
+}
+
 document.getElementById("user_name").innerHTML = "Welcome to kwitter, " + user_name + "!";
 
 function getData() {
@@ -43,6 +47,7 @@ function goToRoom(room) {
 
 function logout() {
       localStorage.removeItem("user_name");
+      localStorage.removeItem("user_pass");
       localStorage.removeItem("room");
       location = "index.html";
 }

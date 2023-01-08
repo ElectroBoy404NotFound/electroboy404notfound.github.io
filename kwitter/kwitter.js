@@ -45,7 +45,7 @@ function logUserIn() {
           if(!userFound) {
             document.getElementById("user_pass").value = "";
             document.getElementById("user_name").value = "";
-            document.getElementById("user_name").placeholder = "Username not found!";
+            document.getElementById("user_name").placeholder = "Incorrect Username or password!";
           }
             // console.log(passhash);
         }else {
@@ -58,5 +58,35 @@ function logUserIn() {
     }
 }
 
-function registerUserIn() {
+async function registerUserIn() {
+    userFound = false;
+    firebase.database().ref("/Users/").on('value', (snapshot) => {
+        snapshot.forEach(async (childSnapshot) => {
+            if(document.getElementById("user_name").value == childSnapshot.key)
+                userFound = true;
+        });
+    });
+    if(userFound) { 
+        document.getElementById("user_pass").value = "";
+        document.getElementById("user_pass").placeholder = "User already exists!";
+        document.getElementById("user_name").value = "";
+        document.getElementById("user_name").placeholder = "User already exists!";
+    }else {
+        username = document.getElementById("user_name").value;
+        password = document.getElementById("user_pass").value;
+        if(username == "") {
+            document.getElementById("user_name").value = "";
+            document.getElementById("user_name").placeholder = "You cant join with a empty username!";
+        } else {
+            if(password == "") {
+                document.getElementById("user_pass").value = "";
+                document.getElementById("user_pass").placeholder = "You cant join with a empty password!";
+            } else {
+                await firebase.database().ref('Users/' + username).set(await sha512(password));
+                localStorage.setItem("user_name", username);
+                localStorage.setItem("user_pass", password);
+                window.location = "kwitter_room.html";
+            }
+        }
+    }
 }
