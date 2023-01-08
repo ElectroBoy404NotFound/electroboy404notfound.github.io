@@ -10,10 +10,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 user_name = localStorage.getItem("user_name");
 
-if(username == null) {
-      location = "index.html";
-}
-
 document.getElementById("user_name").innerHTML = "Welcome to kwitter, " + user_name + "!";
 
 function getData() {
