@@ -27,7 +27,7 @@ function logUserIn() {
                 snapshot.forEach((childSnapshot) => {
                       childKey = childSnapshot.key;
                       childValue = childSnapshot.value;
-                      console.log(childKey + ": " + childValue);
+                      console.log(childSnapshot);
                 });
           });
             // console.log(passhash);
