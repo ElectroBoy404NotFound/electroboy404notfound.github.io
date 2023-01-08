@@ -12,7 +12,7 @@ firebase.initializeApp(firebaseConfig);
 var room_name = localStorage.getItem("room");
 var username = localStorage.getItem("user_name");
 
-if(username == "") {
+if(username == null) {
       location = "index.html";
 }
 

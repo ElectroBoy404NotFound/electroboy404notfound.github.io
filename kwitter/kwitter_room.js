@@ -10,7 +10,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 user_name = localStorage.getItem("user_name");
 
-if(username == "") {
+if(username == null) {
       location = "index.html";
 }
 
