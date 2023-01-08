@@ -22,7 +22,7 @@ function logUserIn() {
         // localStorage.setItem("user_pass", user_pass);
         // window.location = "kwitter_room.html";
         if(user_pass != "") {
-            passhash = firebase.database().ref("/Users").get(user_name);
+            passhash = firebase.database().get(user_name);
             console.log(passhash);
         }else {
             document.getElementById("user_pass").value = "";
