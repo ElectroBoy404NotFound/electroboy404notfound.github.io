@@ -9,11 +9,10 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-function sha512(str) {
-    return crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str)).then(buf => {
-        return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
-    });
-}
+async function sha512(str) {
+    const buf = await crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str));
+    return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+  }
 function logUserIn() {
     user_name = document.getElementById("user_name").value;
     user_pass = document.getElementById("user_pass").value;
@@ -25,12 +24,12 @@ function logUserIn() {
             // passhash = firebase.database().get(user_name);
             userFound = false;
             firebase.database().ref("/Users/").on('value', (snapshot) => {
-                snapshot.forEach((childSnapshot) => {
+                snapshot.forEach(async (childSnapshot) => {
                       childKey = childSnapshot.key;
                       childValue = childSnapshot.val();
                       if(user_name == childKey) {
                         userFound = true;
-                        passwordSHA512 = sha512(user_pass);
+                        passwordSHA512 = await sha512(user_pass);
                         console.log(passwordSHA512);
                         if(passwordSHA512 == childValue) {
                             localStorage.setItem("user_name", user_name);
