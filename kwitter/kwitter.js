@@ -22,8 +22,15 @@ function logUserIn() {
         // localStorage.setItem("user_pass", user_pass);
         // window.location = "kwitter_room.html";
         if(user_pass != "") {
-            passhash = firebase.database().get(user_name);
-            console.log(passhash);
+            // passhash = firebase.database().get(user_name);
+            firebase.database().ref("/Users/" + user_name).on('value', (snapshot) => {
+                document.getElementById("output").innerHTML = "";
+                snapshot.forEach((childSnapshot) => {
+                      childKey  = childSnapshot.key;
+                      console.log(childKey);
+                });
+          });
+            // console.log(passhash);
         }else {
             document.getElementById("user_pass").value = "";
             document.getElementById("user_pass").placeholder = "You cant join with a empty password!";
