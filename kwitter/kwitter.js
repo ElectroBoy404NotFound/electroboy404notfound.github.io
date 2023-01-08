@@ -23,10 +23,11 @@ function logUserIn() {
         // window.location = "kwitter_room.html";
         if(user_pass != "") {
             // passhash = firebase.database().get(user_name);
-            firebase.database().ref("/Users/" + user_name).on('value', (snapshot) => {
+            firebase.database().ref("/Users/").on('value', (snapshot) => {
                 snapshot.forEach((childSnapshot) => {
-                      childKey  = childSnapshot.key;
-                      console.log(childKey);
+                      childKey = childSnapshot.key;
+                      childValue = childSnapshot.value;
+                      console.log(childKey + ": " + childValue);
                 });
           });
             // console.log(passhash);
