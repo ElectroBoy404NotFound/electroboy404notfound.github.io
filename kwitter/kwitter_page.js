@@ -13,7 +13,7 @@ var room_name = localStorage.getItem("room");
 var username = localStorage.getItem("user_name");
 
 function getData() { 
-      firebase.database().ref("/"+room_name).on('value', function(snapshot) { 
+      firebase.database().ref("/rooms/"+room_name).on('value', function(snapshot) { 
             document.getElementById("output").innerHTML = ""; 
             snapshot.forEach(function(childSnapshot) { 
                   childKey  = childSnapshot.key; 
@@ -30,7 +30,7 @@ getData();
 
 function send() {
       if(document.getElementById("msg").value != "") {
-            firebase.database().ref(room_name).push({
+            firebase.database().ref("/rooms/" + room_name).push({
                   name: username,
                   message: document.getElementById("msg").value,
                   likes: 0

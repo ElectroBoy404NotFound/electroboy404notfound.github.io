@@ -13,7 +13,7 @@ user_name = localStorage.getItem("user_name");
 document.getElementById("user_name").innerHTML = "Welcome to kwitter, " + user_name + "!";
 
 function getData() {
-      firebase.database().ref("/").on('value', (snapshot) => {
+      firebase.database().ref("/rooms/").on('value', (snapshot) => {
             document.getElementById("output").innerHTML = "";
             snapshot.forEach((childSnapshot) => {
                   childKey  = childSnapshot.key;
@@ -28,7 +28,7 @@ getData();
 function addRoom() {
       var roomName = document.getElementById("room_name").value;
       if(roomName != "") {
-            firebase.database().ref("/").child(roomName).update({});
+            firebase.database().ref("/rooms/").child(roomName).update({});
             goToRoom(roomName);
       }else {
             document.getElementById("room_name").value = "";
