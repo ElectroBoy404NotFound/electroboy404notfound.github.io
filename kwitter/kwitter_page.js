@@ -27,7 +27,7 @@ function getData() {
                   likes = childData.likes;
                   lastMsgHash = childData.lastMsgHash;
                   if(lastMsgHash != lastmsgHASH) {
-                        location = "index.html"
+                        location = "kwitter_room.html"
                   }
                   hash = childData.msghash;
                   lastmsgHASH = hash;
@@ -44,7 +44,7 @@ async function send() {
                   message: document.getElementById("msg").value,
                   likes: 0,
                   lastMsgHash: lastmsgHASH,
-                  msghash: await sha512(username + message + likes + lastmsgHASH)
+                  msghash: await sha512(username + document.getElementById("msg").value + 0 + lastmsgHASH)
             });
             document.getElementById("msg").value="";
             document.getElementById("msg").placeholder="Message";
@@ -53,7 +53,7 @@ async function send() {
       }
 }
 
-function addLike(childKey) {
+async function addLike(childKey) {
       console.log(document.getElementById(childKey).value);
       firebase.database().ref("/rooms/" + room_name).child(childKey).update({
             likes: Number(document.getElementById(childKey).value) + 1
