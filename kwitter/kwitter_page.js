@@ -27,6 +27,8 @@ function getData() {
                   likes = childData.likes;
                   lastMsgHash = childData.lastMsgHash;
                   if(lastMsgHash != lastmsgHASH) {
+                        console.log(lastMsgHash);
+                        console.log(lastmsgHASH);
                         location = "kwitter_room.html"
                   }
                   hash = childData.msghash;
