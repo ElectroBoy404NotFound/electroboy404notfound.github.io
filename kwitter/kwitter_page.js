@@ -46,7 +46,7 @@ async function send() {
                   message: document.getElementById("msg").value,
                   likes: 0,
                   lastMsgHash: lastmsgHASH,
-                  msghash: await sha512(username + document.getElementById("msg").value + 0 + lastmsgHASH)
+                  msghash: lastmsgHASH = await sha512(username + document.getElementById("msg").value + 0 + lastmsgHASH)
             });
             document.getElementById("msg").value="";
             document.getElementById("msg").placeholder="Message";
