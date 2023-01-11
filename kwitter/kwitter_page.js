@@ -29,7 +29,7 @@ function getData() {
                   if(lastMsgHash != lastmsgHASH) {
                         console.log(lastMsgHash);
                         console.log(lastmsgHASH);
-                        location = "kwitter_room.html"
+                        // location = "kwitter_room.html"
                   }
                   hash = childData.msghash;
                   lastmsgHASH = hash;
