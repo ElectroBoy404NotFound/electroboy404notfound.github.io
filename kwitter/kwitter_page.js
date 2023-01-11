@@ -11,7 +11,11 @@ firebase.initializeApp(firebaseConfig);
 
 var room_name = localStorage.getItem("room");
 var username = localStorage.getItem("user_name");
-
+var lastmsgHASH = null;
+async function sha512(str) {
+      const buf = await crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str));
+      return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+    }
 function getData() { 
       firebase.database().ref("/rooms/"+room_name).on('value', function(snapshot) { 
             document.getElementById("output").innerHTML = ""; 
@@ -21,19 +25,26 @@ function getData() {
                   var name = childData.name;
                   message = childData.message;
                   likes = childData.likes;
-
+                  lastMsgHash = childData.lastMsgHash;
+                  if(lastMsgHash != lastmsgHASH) {
+                        location = "index.html"
+                  }
+                  hash = childData.msghash;
+                  lastmsgHASH = hash;
                   document.getElementById("output").innerHTML += "<h4>" + name + "<img src=\"tick.png\" class=\"user_tick\"></h4> <h4 class=\"msg-h4\">" + message + "</h4><button class=\"btn btn-warning\" id=\"" + childKey +"\" value=\"" + likes + "\" onclick=\"addLike(this.id)\"> <span class=\"gylphicon gylphicon-thunbs-up\"> likes: " + likes + "</span></button>";
             });  
       }); 
 }
 getData();
 
-function send() {
+async function send() {
       if(document.getElementById("msg").value != "") {
             firebase.database().ref("/rooms/" + room_name).push({
                   name: username,
                   message: document.getElementById("msg").value,
-                  likes: 0
+                  likes: 0,
+                  lastMsgHash: lastmsgHASH,
+                  msghash: await sha512(username + message + likes + lastmsgHASH)
             });
             document.getElementById("msg").value="";
             document.getElementById("msg").placeholder="Message";
@@ -44,7 +55,7 @@ function send() {
 
 function addLike(childKey) {
       console.log(document.getElementById(childKey).value);
-      firebase.database().ref(room_name).child(childKey).update({
+      firebase.database().ref("/rooms/" + room_name).child(childKey).update({
             likes: Number(document.getElementById(childKey).value) + 1
       });
 } 
