@@ -43,7 +43,7 @@ function textbox_entered_func() {
     return;
   }
 
-  document.getElementById("hidb").innerHTML = "<button id=\"butt\" onclick=\"send_message()\">Send Question!</button>";
+  document.getElementById("hidb").innerHTML = "<button id=\"butt\" onclick=\"send_message()\">Send Question!</button><br><br>";
 }
 
 var countDownDate = new Date("Jul 25, 2024 23:59:59").getTime();
