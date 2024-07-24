@@ -30,9 +30,9 @@ function send_message() {
   });
 
   localStorage.setItem("times_sent", times_sent);
+  setTimeout(() => {console.log("Timeout, redirecting"); window.location = "success.html";}, 1500);
 
   alert("Submitting... Please wait, click Ok to continue and wait 2 seconds");
-  setTimeout(() => {console.log("Timeout, redirecting"); window.location = "success.html";}, 1500);
 }
 
 function textbox_entered_func() {
