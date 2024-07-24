@@ -32,7 +32,9 @@ function send_message() {
   localStorage.setItem("times_sent", times_sent);
   setTimeout(() => {console.log("Timeout, redirecting"); window.location = "success.html";}, 1500);
 
-  alert("Submitting... Please wait, click Ok to continue and wait 2 seconds");
+  // document.getElementById("butt").innerHTML = "";
+  document.getElementById("hidb").innerHTML = "<h5>Please wait...</h5><br><br>";
+  // alert("Submitting... Please wait, click Ok to continue and wait 2 seconds");
 }
 
 function textbox_entered_func() {
