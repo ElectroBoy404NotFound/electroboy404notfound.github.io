@@ -35,6 +35,11 @@ body, html {
     top: 0;
     left: 16px;
 }
+.topright {
+    position: absolute;
+    top: 0;
+    right: 16px;
+}
 
 /* Position text in the bottom-left corner */
 .bottomleft {
