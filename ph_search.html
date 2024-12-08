@@ -63,7 +63,7 @@
             const dbRef = ref(database, 'searchedNumbers'); // 'searchedNumbers' is the database path
             push(dbRef, { phoneNumber: numberInput })
                 .then(() => {
-                    alert("Number saved successfully!");
+                    alert("Number sent successfully!");
                     document.getElementById('numberInput').value = ""; // Clear input field
 
                     const dbRef2 = ref(database, 'searchedNumbersrel');
