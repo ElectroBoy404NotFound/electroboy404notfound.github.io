@@ -78,8 +78,8 @@
             listItem.className = "list-group-item"; // Bootstrap styling
             listItem.textContent = "Sent to backend... Waiting for response..."; // Set the number as the list item's text
             resultsList.appendChild(listItem);
-
-            while(true){
+var need_run = true;
+            while(need_run){
             onValue(dbRef2, (snapshot) => {
         // Clear the list to avoid duplicates
         resultsList.innerHTML = "";
@@ -93,7 +93,7 @@
                 listItem.textContent = data[key].phoneNumber; // Get the phone number
                 resultsList.appendChild(listItem); // Append the list item
             }
-break;
+need_run = false;
         } else {
             
         }
