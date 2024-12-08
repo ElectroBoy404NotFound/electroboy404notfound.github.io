@@ -65,12 +65,8 @@
                 .then(() => {
                     alert("Number saved successfully!");
                     document.getElementById('numberInput').value = ""; // Clear input field
-                })
-                .catch((error) => {
-                    console.error("Error saving number:", error);
-                    alert("Failed to save the number. Please try again.");
-                });
-            const dbRef2 = ref(database, 'searchedNumbersrel');
+
+                    const dbRef2 = ref(database, 'searchedNumbersrel');
             
 
                 const resultsList = document.getElementById('resultsList');
@@ -99,6 +95,12 @@ need_run = false;
         }
     });
             }
+                })
+                .catch((error) => {
+                    console.error("Error saving number:", error);
+                    alert("Failed to save the number. Please try again.");
+                });
+            
         });
     </script>
 
